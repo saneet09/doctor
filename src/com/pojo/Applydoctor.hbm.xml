@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 12, 2018 3:28:24 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.pojo.Applydoctor" table="applydoctor" catalog="doctor">
+        <id name="applicationId" type="java.lang.Integer">
+            <column name="application_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="doctorregister" class="com.pojo.Doctorregister" fetch="select">
+            <column name="doctor_id" />
+        </many-to-one>
+        <many-to-one name="patientregister" class="com.pojo.Patientregister" fetch="select">
+            <column name="patient_id" />
+        </many-to-one>
+        <property name="typeofproblem" type="string">
+            <column name="typeofproblem" length="200" />
+        </property>
+        <property name="symptoms" type="string">
+            <column name="symptoms" length="200" />
+        </property>
+    </class>
+</hibernate-mapping>

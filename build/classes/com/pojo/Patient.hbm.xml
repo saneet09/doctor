@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 21, 2018 10:22:12 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.pojo.Patient" table="patient" catalog="doctor">
+        <id name="pid" type="java.lang.Integer">
+            <column name="pid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="dplink" class="com.pojo.Dplink" fetch="select">
+            <column name="prob_id" />
+        </many-to-one>
+        <property name="pname" type="string">
+            <column name="pname" />
+        </property>
+        <property name="gender" type="string">
+            <column name="gender" />
+        </property>
+        <property name="problemdiscribe" type="java.lang.Integer">
+            <column name="problemdiscribe" />
+        </property>
+        <property name="report" type="binary">
+            <column name="report" />
+        </property>
+        <property name="pemail" type="string">
+            <column name="pemail" />
+        </property>
+        <property name="pmobile" type="string">
+            <column name="pmobile" />
+        </property>
+    </class>
+</hibernate-mapping>

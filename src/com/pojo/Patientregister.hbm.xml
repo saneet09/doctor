@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 12, 2018 3:28:24 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.pojo.Patientregister" table="patientregister" catalog="doctor">
+        <id name="pid" type="java.lang.Integer">
+            <column name="pid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="role" class="com.pojo.Role" fetch="select">
+            <column name="role_id" />
+        </many-to-one>
+        <property name="fname" type="string">
+            <column name="fname" length="200" />
+        </property>
+        <property name="lname" type="string">
+            <column name="lname" length="200" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="200" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="200" />
+        </property>
+        <property name="problem" type="string">
+            <column name="problem" length="200" />
+        </property>
+        <property name="gender" type="string">
+            <column name="gender" length="200" />
+        </property>
+        <property name="phoneno" type="string">
+            <column name="phoneno" length="200" />
+        </property>
+        <set name="feedbacks" table="feedback" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="patient_id" />
+            </key>
+            <one-to-many class="com.pojo.Feedback" />
+        </set>
+        <set name="applydoctors" table="applydoctor" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="patient_id" />
+            </key>
+            <one-to-many class="com.pojo.Applydoctor" />
+        </set>
+    </class>
+</hibernate-mapping>
